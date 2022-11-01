@@ -2,7 +2,9 @@ class Person
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(age, _parent_permission, name = 'Unknownn')
+  # rubocop:disable Lint/UnusedMethodArgument
+  def initialize(age, name = 'Unknownn', parent_permission: true)
+    # rubocop:enable Lint/UnusedMethodArgument
     @id = rand(1..100)
     @name = name
     @age = age
@@ -15,6 +17,6 @@ class Person
   private
 
   def of_age?
-    false if age >= 18
+    can_use_services?
   end
 end
