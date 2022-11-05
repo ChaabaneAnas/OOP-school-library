@@ -1,11 +1,9 @@
 #!/usr/bin/env ruby
 
-require "./app"
+require './app'
 
 def main
-  app = App.new()
-  while 1 > 0
-  app.excute
-  end
-end 
-main()
+  app = App.new
+  app.excute while 1.positive?
+end
+main
