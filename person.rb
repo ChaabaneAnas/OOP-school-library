@@ -1,10 +1,10 @@
-require '../Decorators/person_decorator'
+require "./person_decorator"
 
 class Person < Nameable
   attr_accessor :name, :age, :rentals
-  attr_reader :id
+  attr_reader :id, :parent_permission
 
-  def initialize(age, name = 'Unknownn', parent_permission: true)
+  def initialize(name = 'Unknownn', age, parent_permission)
     super()
     @id = rand(1..100)
     @name = name
@@ -27,3 +27,5 @@ class Person < Nameable
     can_use_services?
   end
 end
+
+
