@@ -22,6 +22,8 @@ Metrics/CyclomaticComplexity:
   Max: 10
 
 
+
+
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:

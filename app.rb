@@ -134,6 +134,7 @@ class App
 
     Rental.new(date, book, person)
     puts 'rental created succssefully'
+
   end
 
   def list_rentals_for_a_given
@@ -145,6 +146,7 @@ class App
       putsitem.rentals.map.with_index do |rental, index|
         "#{index}) Date: #{rental.date} Book: #{rental.book.title} Person: #{rental.person.name}"
       end
+
     end
   end
 
