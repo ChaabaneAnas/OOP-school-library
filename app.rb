@@ -23,9 +23,7 @@ require "./teacher"
     puts '7 - Exit'
   end
 
-def excute
-    menu
-    user_input = gets.chomp.to_i
+def excute(user_input)
     case user_input
     when 1 
       list_all_books
