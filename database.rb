@@ -1,14 +1,6 @@
 module Data_manager
   def presist
-  hbooks = @books.map {|book| {Title: book.title, Author: book.author}}
-  File.write("./data/books.json", "#{JSON.pretty_generate(hbooks)}")
-
-  hpersons = @persons.map {|person|
-  person.class == Teacher ? {id: person.id, name: person.name, age: person.age, specialization: person.specialization } : {id: person.id, name: person.name, age: person.age, parent_permission: person.parent_permission}}
-  File.write("./data/persons.json", "#{JSON.pretty_generate(hpersons)}")
-
-  jrentals = @rentals.map {|rental| {id: rental.person.id, date: rental.date, book: rental.book.title, person: rental.person.name }}
-  File.write("./data/rentals.json", "#{JSON.pretty_generate(jrentals)}")
+    #presist code here
   end
 
   def loaddata
