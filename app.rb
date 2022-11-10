@@ -4,11 +4,16 @@ require './person'
 require './rental'
 require './student'
 require './teacher'
+require './database'
+require 'json'
 
 class App
+  attr_accessor :persons, :books
+  include Data_manager
   def initialize
     @books = []
     @persons = []
+    @rentals = []
   end
 
   def menu
@@ -54,7 +59,9 @@ class App
     puts 'Teacher specialization: '
     specialization = gets.chomp
 
-    teacher = Person.new(age, specialization, name)
+    id = rand(1..1000)
+
+    teacher = Teacher.new(name, age, specialization, id)
     @persons.push(teacher)
     puts "Teacher #{name} created Seuccssefully"
   end
@@ -70,12 +77,14 @@ class App
     parent_permission = gets.chomp
     case parent_permission
     when 'y'
-      true
+     parent_permission = true
     when 'n'
-      false
+     parent_permission = false
     end
 
-    student = Person.new(age, parent_permission, name)
+    id = rand(1..1000)
+
+    student = Student.new(name, age ,id,parent_permission)
     @persons.push(student)
     puts "Student #{name} Created succssefully"
   end
@@ -107,6 +116,7 @@ class App
   end
 
   def list_all_books
+    p @books
     puts 'You have no books yet, Add a book.' if @books.empty?
     @books.each.with_index { |book, index| puts "#{index}) [Book] Title: #{book.title}, Author: #{book.author}" }
   end
@@ -132,24 +142,27 @@ class App
     puts 'date: '
     date = gets.chomp
 
-    Rental.new(date, book, person)
+    @rentals.push(Rental.new(date, book, person))
     puts 'rental created succssefully'
   end
 
   def list_rentals_for_a_given
     puts 'enter person id: '
     id = gets.chomp.to_i
-    @persons.each do |item|
+     @persons.each do |item|
       next unless item.id == id
 
-      putsitem.rentals.map.with_index do |rental, index|
-        "#{index}) Date: #{rental.date} Book: #{rental.book.title} Person: #{rental.person.name}"
+      item.rentals.map.with_index do |rental, index|
+        puts "#{index}) Date: #{rental.date} Book: #{rental.book.title} Person: #{rental.person.name}"
       end
     end
+    # puts @rentals.filter { |rental| rental["id"] = id}
   end
 
   def quit_app
     puts 'thanks for using our app'
+    presist
     exit
   end
+
 end

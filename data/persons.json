@@ -1,0 +1,20 @@
+[
+  {
+    "id": 571,
+    "name": "anas",
+    "age": 25,
+    "specialization": "dev"
+  },
+  {
+    "id": 71,
+    "name": "ahmed",
+    "age": 22,
+    "parent_permission": true
+  },
+  {
+    "id": 142,
+    "name": "habib",
+    "age": 26,
+    "specialization": "dev"
+  }
+]
