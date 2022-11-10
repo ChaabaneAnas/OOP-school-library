@@ -23,9 +23,7 @@ class App
     puts '7 - Exit'
   end
 
-  def excute
-    menu
-    user_input = gets.chomp.to_i
+  def excute(user_input)
     case user_input
     when 1
       list_all_books
@@ -58,7 +56,7 @@ class App
 
     teacher = Person.new(age, specialization, name)
     @persons.push(teacher)
-    puts "Teacher #{name} created"
+    puts "Teacher #{name} created Seuccssefully"
   end
 
   def create_a_student
@@ -134,8 +132,8 @@ class App
     puts 'date: '
     date = gets.chomp
 
-    rental = Rental.new(date, book, person)
-    puts "rental for #{rental.book.title} created succssefully"
+    Rental.new(date, book, person)
+    puts 'rental created succssefully'
   end
 
   def list_rentals_for_a_given
@@ -144,9 +142,9 @@ class App
     @persons.each do |item|
       next unless item.id == id
 
-      puts(item.rentals.map.with_index do |rental, index|
-             "#{index}) Date: #{rental.date} Book: #{rental.book.title} Person: #{rental.person.name}"
-           end)
+      putsitem.rentals.map.with_index do |rental, index|
+        "#{index}) Date: #{rental.date} Book: #{rental.book.title} Person: #{rental.person.name}"
+      end
     end
   end
 
