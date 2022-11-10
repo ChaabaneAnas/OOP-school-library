@@ -10,7 +10,7 @@ require 'json'
 class App
   attr_accessor :persons, :books
 
-  include Data_manager
+  include DataManager
   def initialize
     @books = []
     @persons = []
@@ -117,7 +117,6 @@ class App
   end
 
   def list_all_books
-    p @books
     puts 'You have no books yet, Add a book.' if @books.empty?
     @books.each.with_index { |book, index| puts "#{index}) [Book] Title: #{book.title}, Author: #{book.author}" }
   end
@@ -157,7 +156,6 @@ class App
         puts "#{index}) Date: #{rental.date} Book: #{rental.book.title} Person: #{rental.person.name}"
       end
     end
-    # puts @rentals.filter { |rental| rental["id"] = id}
   end
 
   def quit_app

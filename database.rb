@@ -1,4 +1,4 @@
-module Data_manager
+module DataManager
   def presist
     hbooks = @books.map { |book| { Title: book.title, Author: book.author } }
     File.write('./data/books.json', JSON.pretty_generate(hbooks).to_s)
