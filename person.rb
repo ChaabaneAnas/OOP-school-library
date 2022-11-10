@@ -2,11 +2,13 @@ require './person_decorator'
 
 class Person < Nameable
   attr_accessor :name, :age, :rentals
-  attr_reader :id, :parent_permission
+  attr_reader :parent_permission, :id
 
-  def initialize(age, parent_permission, name = 'Unknownn')
+  # rubocop:disable Style/OptionalBooleanParameter
+  def initialize(name, age, id, parent_permission = true)
+    # rubocop:enable Style/OptionalBooleanParameter
     super()
-    @id = rand(1..100)
+    @id = id
     @name = name
     @age = age
     @parent_permission = parent_permission
