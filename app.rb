@@ -9,6 +9,7 @@ require 'json'
 
 class App
   attr_accessor :persons, :books
+
   include Data_manager
   def initialize
     @books = []
@@ -77,14 +78,14 @@ class App
     parent_permission = gets.chomp
     case parent_permission
     when 'y'
-     parent_permission = true
+      parent_permission = true
     when 'n'
-     parent_permission = false
+      parent_permission = false
     end
 
     id = rand(1..1000)
 
-    student = Student.new(name, age ,id,parent_permission)
+    student = Student.new(name, age, id, parent_permission)
     @persons.push(student)
     puts "Student #{name} Created succssefully"
   end
@@ -149,7 +150,7 @@ class App
   def list_rentals_for_a_given
     puts 'enter person id: '
     id = gets.chomp.to_i
-     @persons.each do |item|
+    @persons.each do |item|
       next unless item.id == id
 
       item.rentals.map.with_index do |rental, index|
@@ -164,5 +165,4 @@ class App
     presist
     exit
   end
-
 end

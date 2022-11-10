@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require './app'
-require'./database'
-require'json'
+require './database'
+require 'json'
 
 def main
   app = App.new

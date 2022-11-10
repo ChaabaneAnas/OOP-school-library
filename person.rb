@@ -4,7 +4,7 @@ class Person < Nameable
   attr_accessor :name, :age, :rentals
   attr_reader :parent_permission, :id
 
-  def initialize(name,  age, id, parent_permission =  true )
+  def initialize(name, age, id, parent_permission = true)
     super()
     @id = id
     @name = name
@@ -27,5 +27,3 @@ class Person < Nameable
     can_use_services?
   end
 end
-
-
